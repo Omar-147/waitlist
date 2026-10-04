@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AccraWireless | Fiber Internet in Accra | Join the Waitlist</title>
+<meta name="description" content="Fiber internet with unlimited data, coming to Greater Accra. Join the AccraWireless waitlist to get it in your area first.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap">
+<style>
+/* Layout after SpaceXAI: white page, near-black ink, two-tone grey headlines, pill buttons, soft grey product panels.
+   Sections: hero (copy + signup panel) → feature tiles with mini UI → steps + launch bento → plans → FAQ list → CTA → footer.
+   Deliberately light-only, so every colour is set explicitly. */
+:root{
+  color-scheme:light;
+  --bg:#FFFFFF; --tile:#F6F6F5; --tile-2:#EFEFEE; --line:#E6E6E4; --ink:#0B0B0B; --ink-2:#2A2A2A;
+  --grey:#8C8C8A; --muted:#6A6A68; --live:#16A34A; --bad:#C0352B;
+  --font:"Inter Tight",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+[hidden]{display:none!important}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 var(--font);-webkit-font-smoothing:antialiased;letter-spacing:-.005em}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:24px}
+h1,h2,h3{margin:0;font-weight:500;letter-spacing:-.035em;line-height:1.04;text-wrap:balance}
+h1 span,h2 span{color:var(--grey);display:block}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:6px}
+
+/* pills */
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:7px;border-radius:999px;padding:9px 16px;font:500 14px var(--font);
+  text-decoration:none;cursor:pointer;border:1px solid transparent;transition:background .15s,border-color .15s;white-space:nowrap}
+.pill.dark{background:var(--ink);color:#fff}.pill.dark:hover{background:#2b2b2b}
+.pill.light{background:#fff;color:var(--ink);border-color:var(--line)}.pill.light:hover{border-color:#cfcfcc}
+.pill.lg{padding:12px 20px;font-size:15px}
+.pill svg{flex:none}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(255,255,255,.86);backdrop-filter:saturate(1.6) blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{height:60px;display:flex;align-items:center;gap:32px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;font-weight:600;font-size:15px;letter-spacing:-.02em}
+.links{display:flex;gap:24px;font-size:14px;color:var(--muted)}
+.links a{text-decoration:none}.links a:hover{color:var(--ink)}
+.nav-cta{margin-left:auto;display:flex;gap:8px}
+
+/* hero */
+.hero{padding-block:88px 96px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:64px;align-items:center}
+.kicker{color:var(--muted);font-size:14px}
+.hero h1{font-size:clamp(42px,5.4vw,64px);margin:14px 0 20px}
+.hero .lede{color:var(--muted);font-size:17px;max-width:30em}
+.hero .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.checks{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:26px;font-size:13px;color:var(--grey)}
+.checks span{display:inline-flex;align-items:center;gap:6px}
+
+/* signup panel (styled like SpaceXAI's product panel) */
+.panel{background:var(--tile);border:1px solid var(--line);border-radius:18px;padding:14px;min-width:0}
+.bubble{justify-self:end;max-width:85%;background:var(--tile-2);border-radius:12px;padding:9px 13px;font-size:13.5px;color:var(--ink-2)}
+.reply{font-size:13.5px;color:var(--muted);padding:2px 4px}
+.panel form,.panel .done{display:grid;gap:8px}
+.row{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 12px;align-items:center;transition:border-color .15s,box-shadow .15s}
+.row:focus-within{border-color:#bdbdba;box-shadow:0 0 0 4px rgba(0,0,0,.04)}
+.row.err{border-color:var(--bad)}
+.ico{grid-row:span 2;width:30px;height:30px;border-radius:8px;background:var(--tile);display:grid;place-items:center;color:var(--muted)}
+.row label{font-size:12px;color:var(--muted)}
+.row .in{display:flex;align-items:center;min-width:0}
+.row .pre{flex:none;color:var(--ink-2);font-weight:500;padding-right:6px}
+.row input{flex:1 1 0;width:100%;min-width:0;border:0;outline:none;background:transparent;font:500 15.5px var(--font);color:var(--ink);padding:1px 0}
+.row input::placeholder{color:#B4B4B1;font-weight:400}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 0 0 4px}
+.bar small{color:var(--grey);font-size:12.5px}
+.msg{color:var(--bad);font-size:13px;padding:2px 4px}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);padding:4px 4px 0;cursor:pointer}
+.consent input{flex:none;width:16px;height:16px;margin:2px 0 0;accent-color:#0B0B0B}
+.consent.err{color:var(--bad)}
+.done .ok{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--live);font-weight:500}
+.done .ok i{width:7px;height:7px;border-radius:50%;background:var(--live);box-shadow:0 0 0 4px rgba(22,163,74,.15)}
+.done .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;display:grid;gap:10px}
+.done h3{font-size:22px;letter-spacing:-.03em}
+.done p{color:var(--muted)}
+.done .btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+
+/* section heads */
+section{padding-block:96px}
+.head{margin-bottom:44px}
+.head h2{font-size:clamp(30px,3.6vw,42px)}
+
+/* feature tiles with mini UI */
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.tile{background:var(--tile);padding:22px;display:flex;flex-direction:column;gap:10px;min-height:340px;min-width:0}
+.tile .tag{font-size:12px;color:var(--grey)}
+.tile h3{font-size:21px;letter-spacing:-.03em;line-height:1.15}
+.tile p{color:var(--muted);font-size:14px}
+.mini{margin-top:auto;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:12.5px;display:grid;gap:8px}
+.mini .r{display:flex;justify-content:space-between;gap:8px;color:var(--muted)}
+.mini .r b{color:var(--ink);font-weight:500}
+.meter{height:6px;border-radius:99px;background:var(--tile-2);overflow:hidden}
+.meter i{display:block;height:100%;width:72%;background:var(--ink);border-radius:99px}
+.mini svg{display:block;width:100%;height:auto}
+.legend{display:flex;gap:12px;color:var(--muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:2px;margin-right:6px;vertical-align:3px;background:var(--ink)}
+.legend span.o::before{background:#C9C9C6}
+.call{display:flex;align-items:center;gap:10px}
+.av{width:30px;height:30px;border-radius:50%;background:var(--tile-2);display:grid;place-items:center;font-weight:600;font-size:11px;color:var(--ink-2);flex:none}
+.live{display:inline-flex;align-items:center;gap:6px;color:var(--live);font-weight:500}
+.live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--live)}
+.chat{display:grid;gap:6px}
+.chat .m{background:var(--tile);border-radius:10px 10px 10px 3px;padding:7px 10px;justify-self:start;max-width:90%;color:var(--ink-2)}
+.chat .m.me{justify-self:end;background:var(--ink);color:#fff;border-radius:10px 10px 3px 10px}
+
+/* steps + launch bento (after Popcorn) */
+.bento{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:12px}
+.b-steps{background:var(--tile);border:1px solid var(--line);border-radius:18px;padding:32px;display:grid;gap:22px;align-content:start}
+.b-steps h3{font-size:30px}
+.slist{display:grid;gap:8px;counter-reset:s}
+.slist div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:grid;grid-template-columns:28px minmax(0,1fr);gap:2px 10px;counter-increment:s}
+.slist div::before{content:counter(s);grid-row:span 2;width:24px;height:24px;border-radius:7px;background:var(--tile);display:grid;place-items:center;font-size:12.5px;font-weight:600;color:var(--muted)}
+.slist strong{font-weight:500}
+.slist span{color:var(--muted);font-size:14px}
+.b-dark{background:var(--ink);color:#fff;border-radius:18px;padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:28px}
+.b-dark h3{font-size:30px;text-align:right}
+.b-dark h3 span{color:#8C8C8A;display:block}
+.b-dark .big{font-size:clamp(56px,6vw,76px);font-weight:500;letter-spacing:-.05em;line-height:1;text-align:right}
+.b-dark .sub{color:#A3A3A0;text-align:right;font-size:14px;margin-top:6px}
+.b-dark .pill{align-self:flex-end}
+
+/* plans (after OpenAI pricing) */
+.plans-bg{background:var(--tile);border-block:1px solid var(--line)}
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.plan{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.plan .nm{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.plan h3{font-size:20px;letter-spacing:-.025em}
+.plan .chip{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:3px 9px;color:var(--muted)}
+.plan .d{color:var(--muted);font-size:14px}
+.plan .sp{font-size:44px;font-weight:500;letter-spacing:-.05em;line-height:1;font-variant-numeric:tabular-nums}
+.plan .sp small{font-size:15px;letter-spacing:-.01em;color:var(--muted);margin-left:4px;font-weight:400}
+.plan ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:14.5px}
+.plan li{display:flex;gap:10px;align-items:flex-start}
+.plan li svg{flex:none;margin-top:4px}
+.plan .foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:10px}
+.plan .foot span{font-size:13px;color:var(--grey)}
+.note{font-size:13px;color:var(--grey);margin-top:16px}
+
+/* FAQ (after SpaceXAI Enterprise FAQs) */
+.faq-head p{color:var(--muted);margin-top:12px;max-width:34em}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.chips span{font-size:12.5px;border:1px solid var(--line);border-radius:999px;padding:4px 11px;color:var(--muted)}
+.faq{margin-top:32px;border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;padding:18px 0;font-size:15.5px;font-weight:500}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--grey);font-size:20px;line-height:1;font-weight:300;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);padding:0 40px 20px 0;max-width:46em}
+
+/* CTA */
+.cta{text-align:center;padding-block:112px}
+.cta h2{font-size:clamp(34px,4.4vw,52px)}
+.cta p{color:var(--muted);margin:16px auto 28px;max-width:28em}
+
+/* footer (after SpaceXAI) */
+footer{border-top:1px solid var(--line);padding-block:48px calc(48px + 64px);font-size:13px;color:var(--muted)}
+footer .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) repeat(3,minmax(0,1fr));gap:32px}
+footer h4{margin:0 0 10px;font-size:13px;font-weight:500;color:var(--ink)}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+footer a{text-decoration:none}footer a:hover{color:var(--ink)}
+footer .brand{display:grid;gap:10px;align-content:start}
+
+/* mobile sticky bar */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:none;transform:translateY(110%);transition:transform .25s}
+.sticky.show{transform:none}
+.sticky .pill{width:100%}
+
+@media (max-width:980px){
+  .hero{padding-block:48px 64px}
+  .hero .wrap{grid-template-columns:minmax(0,1fr);gap:36px}
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .bento,.plans{grid-template-columns:minmax(0,1fr)}
+  .b-dark h3,.b-dark .big,.b-dark .sub{text-align:left}
+  .b-dark .pill{align-self:flex-start}
+  footer .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .links{display:none}
+  .sticky{display:block}
+  section{padding-block:72px}
+}
+@media (max-width:560px){
+  .wrap{padding-inline:16px}
+  .nav-cta .light{display:none}
+  .hero .actions{display:none}
+  .tiles{grid-template-columns:minmax(0,1fr)}
+  .tile{min-height:0}
+  .tile .mini{margin-top:12px}
+  .b-steps,.b-dark{padding:24px}
+  .bar small{display:none}
+  .bar .pill{width:100%}
+  .cta{padding-block:80px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+
+<meta property="og:title" content="AccraWireless: fiber internet is coming to Greater Accra">
+<meta property="og:description" content="Unlimited fiber that doesn't quit at 7pm. Reserve your spot and help bring it to your area first.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pushatee11.github.io/connect/">
+<meta property="og:image" content="https://pushatee11.github.io/connect/assets/fiber-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FFFFFF">
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="AccraWireless home">
+      <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><rect width="22" height="22" rx="6" fill="#0B0B0B"/><path d="M5.5 13c3-4.2 8-4.2 11 0" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/><path d="M8.3 14.6c1.5-2 3.9-2 5.4 0" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg>
+      AccraWireless
+    </a>
+    <div class="links"><a href="#why">Why fiber</a><a href="#how">How it works</a><a href="#plans">Plans</a><a href="#faq">FAQ</a></div>
+    <div class="nav-cta">
+      <a class="pill light" href="#faq">Contact</a>
+      <a class="pill dark" href="#signup">Join waitlist</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <p class="kicker">AccraWireless for Homes &amp; Business</p>
+        <h1>Internet that doesn’t quit.<span>Not even at 7pm.</span></h1>
+        <p class="lede">Fiber to your door across Greater Accra. Unlimited data, the same speed all evening, and support on WhatsApp. We build first where the most people join.</p>
+        <div class="actions">
+          <a class="pill dark lg" href="#signup">Join the waitlist
+            <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M4 10l6-6M5 4h5v5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a class="pill light lg" href="#plans">See plans</a>
+        </div>
+        <div class="checks"><span>✓ Unlimited data</span><span>✓ Free to join</span><span>✓ No contracts</span><span>✓ Router included</span></div>
+      </div>
+
+      <div class="panel" id="signup">
+        <form id="join" novalidate>
+          <div class="bubble">Is fiber coming to my area?</div>
+          <p class="reply">Reserve a spot. Areas with the most signups get connected first.</p>
+
+          <div class="row" id="r-name">
+            <span class="ico"><svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5.5" r="2.8" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M2.8 14c.8-2.8 2.8-4.2 5.2-4.2s4.4 1.4 5.2 4.2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
+            <label for="name">Full name</label>
+            <div class="in"><input id="name" name="name" autocomplete="name" placeholder="Ama Mensah"></div>
+          </div>
+          <div class="row" id="r-phone">
+            <span class="ico"><svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 13.2l.8-2.6A5.6 5.6 0 1 1 6 12.6z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+            <label for="phone">WhatsApp number</label>
+            <div class="in"><span class="pre">+233</span><input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="24 123 4567"></div>
+          </div>
+          <div class="row" id="r-area">
+            <span class="ico"><svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 14.5s4.8-4.3 4.8-8a4.8 4.8 0 0 0-9.6 0c0 3.7 4.8 8 4.8 8z" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="8" cy="6.5" r="1.6" fill="currentColor"/></svg></span>
+            <label for="area">Your area</label>
+            <div class="in"><input id="area" name="area" list="areas" autocomplete="off" placeholder="East Legon, Spintex, Tema…"></div>
+          </div>
+          <datalist id="areas"></datalist>
+          <label class="consent" id="r-consent"><input type="checkbox" id="consent" name="consent"> I agree to be contacted on WhatsApp about availability and launch updates.</label>
+          <p class="msg" id="msg" role="alert" hidden></p>
+          <div class="bar">
+            <small>Free · No payment · No spam</small>
+            <button class="pill dark" type="submit" id="submit">Reserve my spot
+              <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </form>
+
+        <div class="done" id="done" hidden>
+          <div class="bubble" id="doneAsk">Is fiber coming to my area?</div>
+          <div class="card">
+            <span class="ok"><i></i>Spot reserved</span>
+            <h3 id="doneTitle">You’re on the list.</h3>
+            <p id="doneText">We’ll message you on WhatsApp when fiber reaches your area.</p>
+            <p>Every neighbour who joins moves your area up the rollout plan.</p>
+            <div class="btns">
+              <a class="pill dark" id="waShare" href="https://wa.me/" target="_blank" rel="noopener">Share on WhatsApp</a>
+              <button class="pill light" id="copyLink" type="button">Copy invite link</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="why" style="padding-top:0">
+    <div class="wrap">
+      <div class="head"><h2>Built for how Accra uses the internet.<span>Fiber to your home, not a shared signal.</span></h2></div>
+      <div class="tiles">
+        <div class="tile">
+          <span class="tag">Data</span>
+          <h3>Unlimited, actually</h3>
+          <p>No monthly cap and no slow-down after heavy use. Stream, game and back up as much as you want.</p>
+          <div class="mini">
+            <div class="r"><span>Used this month</span><b>1.4 TB</b></div>
+            <div class="meter"><i></i></div>
+            <div class="r"><span>Data cap</span><b>None</b></div>
+          </div>
+        </div>
+        <div class="tile">
+          <span class="tag">Evenings</span>
+          <h3>Same speed at 7pm</h3>
+          <p>Fiber doesn’t slow down when the whole street gets home and logs on.</p>
+          <div class="mini">
+            <svg viewBox="0 0 200 70" aria-label="Fiber speed stays flat through the evening while typical connections drop after 6pm">
+              <line x1="0" y1="69" x2="200" y2="69" stroke="#E6E6E4"/>
+              <path d="M0 40 C30 38 50 42 80 46 S120 64 140 62 S180 52 200 48" fill="none" stroke="#C9C9C6" stroke-width="2"/>
+              <path d="M0 12 L200 12" fill="none" stroke="#0B0B0B" stroke-width="2"/>
+              <text x="0" y="66" font-size="9" fill="#8C8C8A">12pm</text><text x="118" y="66" font-size="9" fill="#8C8C8A">7pm</text><text x="176" y="66" font-size="9" fill="#8C8C8A">11pm</text>
+            </svg>
+            <div class="legend"><span>Fiber</span><span class="o">Typical</span></div>
+          </div>
+        </div>
+        <div class="tile">
+          <span class="tag">Work</span>
+          <h3>Calls that stay connected</h3>
+          <p>Steady speeds for Zoom, Teams and client calls, without “can you hear me?”</p>
+          <div class="mini">
+            <div class="call"><span class="av">KO</span><div><b style="font-weight:500">Kofi · Client call</b><div class="live">Connected · 1:42:07</div></div></div>
+            <div class="r"><span>Video</span><b>HD</b></div>
+          </div>
+        </div>
+        <div class="tile">
+          <span class="tag">Support</span>
+          <h3>Help on WhatsApp</h3>
+          <p>A local team in Accra you can message, instead of a call centre queue.</p>
+          <div class="mini chat">
+            <span class="m me">Router light is orange</span>
+            <span class="m">On it. A technician can come by at 4pm today.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" style="padding-top:0">
+    <div class="wrap bento">
+      <div class="b-steps">
+        <h3>Get on the list in 20 seconds</h3>
+        <div class="slist">
+          <div><strong>Reserve your spot</strong><span>Name, WhatsApp number and area. No payment.</span></div>
+          <div><strong>We build where demand is</strong><span>Areas with the most signups move to the front.</span></div>
+          <div><strong>You’re online</strong><span>We message you first when your street is ready.</span></div>
+        </div>
+      </div>
+      <div class="b-dark">
+        <h3>Early members<span>get launch pricing.</span></h3>
+        <div>
+          <div class="big">First</div>
+          <p class="sub">to hear prices, first to connect</p>
+        </div>
+        <a class="pill light" href="#signup">Reserve my spot</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="plans" class="plans-bg">
+    <div class="wrap">
+      <div class="head"><h2>Plans<span>Three speeds, all unlimited. Prices announced at launch.</span></h2></div>
+      <div class="plans">
+        <div class="plan">
+          <div class="nm"><h3>Home</h3></div>
+          <p class="d">Students, apartments and everyday streaming.</p>
+          <div class="sp">100<small>Mbps</small></div>
+          <ul>
+            <li><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6.2l2.4 2.4L10 3" fill="none" stroke="#0B0B0B" stroke-width="1.5" stroke-linecap="round"/></svg>4K streaming on 1–2 screens</li>
+            <li><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6.2l2.4 2.4L10 3" fill="none" stroke="#0B0B0B" stroke-width="1.5" stroke-linecap="round"/></svg>Smooth video calls</li>
+            <li><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6.2l2.4 2.4L10 3" fill="none" stroke="#0B0B0B" stroke-width="1.5" stroke-linecap="round"/></svg>Wi-Fi router included</li>
+          </ul>
+          <div class="foot"><span>Price at launch</span><a class="pill light" href="#signup">Join</a></div>
+        </div>
+        <div class="plan">
+          <div class="nm"><h3>Family &amp; Creator</h3><span class="chip">Most popular</span></div>
+          <p class="d">Busy homes, remote work and gaming.</p>
+          <div class="sp">200<small>Mbps</small></div>
+          <ul>
+            <li><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6.2l2.4 2.4L10 3" fill="none" stroke="#0B0B0B" stroke-width="1.5" stroke-linecap="round"/></svg>10+ devices at once</li>
+            <li><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6.2l2.4 2.4L10 3" fill="none" stroke="#0B0B0B" stroke-width="1.5" stroke-linecap="round"/></svg>Low-latency gaming</li>
+            <li><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6.2l2.4 2.4L10 3" fill="none" stroke="#0B0B0B" stroke-width="1.5" stroke-linecap="round"/></svg>Fast uploads for creators</li>
+            <li><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6.2l2.4 2.4L10 3" fill="none" stroke="#0B0B0B" stroke-width="1.5" stroke-linecap="round"/></svg>Priority support</li>
+          </ul>
+          <div class="foot"><span>Price at launch</span><a class="pill dark" href="#signup">Join</a></div>
+        </div>
+        <div class="plan">
+          <div class="nm"><h3>Business</h3></div>
+          <p class="d">Offices, shops and studios.</p>
+          <div class="sp">250<small>Mbps+</small></div>
+          <ul>
+            <li><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6.2l2.4 2.4L10 3" fill="none" stroke="#0B0B0B" stroke-width="1.5" stroke-linecap="round"/></svg>20+ devices</li>
+            <li><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6.2l2.4 2.4L10 3" fill="none" stroke="#0B0B0B" stroke-width="1.5" stroke-linecap="round"/></svg>Static IP for CCTV and servers</li>
+            <li><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6.2l2.4 2.4L10 3" fill="none" stroke="#0B0B0B" stroke-width="1.5" stroke-linecap="round"/></svg>Dedicated account manager</li>
+          </ul>
+          <div class="foot"><span>Price at launch</span><a class="pill light" href="#signup">Join</a></div>
+        </div>
+      </div>
+      <p class="note">Speeds are the planned top speed for each plan. Final speeds and prices are confirmed at launch.</p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="faq-head">
+        <h2 style="font-size:clamp(30px,3.6vw,42px)">FAQs</h2>
+        <p>Common questions about the waitlist and the service. Anything else, message us on WhatsApp.</p>
+        <div class="chips"><span>WhatsApp +233 00 000 0000</span><span>hello@accrawireless.com</span></div>
+      </div>
+      <div class="faq">
+        <details open><summary>When does AccraWireless launch?</summary><p>We’re rolling out in phases across Greater Accra, starting with the areas that have the most waitlist signups. Everyone on the list hears on WhatsApp as soon as their area is ready.</p></details>
+        <details><summary>Does joining the waitlist cost anything?</summary><p>No. Joining is free and doesn’t commit you to anything. You decide whether to sign up once we reach your area.</p></details>
+        <details><summary>How much will it cost?</summary><p>Prices are announced before launch. Waitlist members see them first and get early-member rates.</p></details>
+        <details><summary>Is the data really unlimited?</summary><p>Yes. Every plan is unmetered, with no monthly cap and no slow-down after heavy use.</p></details>
+        <details><summary>Which areas will you cover?</summary><p>All of Greater Accra over time, from Kasoa to Tema and north to Amasaman and Oyarifa. The order depends on where people sign up.</p></details>
+        <details><summary>What do you do with my details?</summary><p>We use your name, number and area only to plan coverage and tell you when we’re ready. We never sell your data, and you can ask us to delete it at any time.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <div class="wrap">
+      <h2>Bring fiber to your street.<span>It takes 20 seconds.</span></h2>
+      <p>The more neighbours who join, the sooner we connect your area.</p>
+      <a class="pill dark lg" href="#signup">Join the waitlist</a>
+    </div>
+  </div>
+</main>
+
+<!-- TODO: replace placeholder contact details and social links -->
+<footer>
+  <div class="wrap">
+    <div class="brand">
+      <a class="logo" href="#top">AccraWireless</a>
+      <span>Fiber internet for Greater Accra</span>
+      <span>© 2026 AccraWireless</span>
+    </div>
+    <div><h4>Service</h4><ul><li><a href="#why">Why fiber</a></li><li><a href="#plans">Plans</a></li><li><a href="#how">How it works</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li>WhatsApp +233 00 000 0000</li><li>hello@accrawireless.com</li></ul></div>
+    <div><h4>Legal</h4><ul><li><a href="#faq">Privacy</a></li><li><a href="#faq">Terms</a></li><li><a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky"><a class="pill dark lg" href="#signup">Join the waitlist</a></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="./supabase-config.js"></script>
+<script>
+// Signups go to the Supabase table "waitlist_submissions" (see supabase/schema.sql).
+// supabase-config.js holds the public URL and publishable key. Without it, the form runs in demo mode.
+const SITE_URL = "https://pushatee11.github.io/connect"; // TODO: switch to your own domain
+const cfg = window.SUPABASE_CONFIG || {};
+const db = window.supabase && cfg.url && (cfg.publishableKey || cfg.anonKey)
+  ? window.supabase.createClient(cfg.url, cfg.publishableKey || cfg.anonKey) : null;
+
+const AREAS = ["Airport Residential Area","Airport City / Airport West","Cantonments","East Legon","East Legon Hills","Labone","Osu","Ridge / North Ridge","Roman Ridge","Dzorwulu","Abelemkpe","Kanda","Kwabenya","Agbogba","Adenta","Ashaley Botwe","Madina","Ogbojo","Oyarifa","Ayi Mensah","Pantang","Danfa","Abokobi","Frafraha","Spintex Road","Baatsona","Lashibi","Sakumono","Teshie","Nungua","Klagon","Tema Communities 1–12","Tema Community 18 / 19 / 20","Tema Community 25","Ashaiman","Tema Industrial Area","Kpone","Afienya","Dawhenya","Prampram","Achimota","Dome / Pillar 2","Haatso","Ashongman Estate","West Legon / Westlands","Legon","Taifa","Tesano","Lapaz / Abeka","Kwashieman","Darkuman / Odorkor","Kaneshie / Mataheko","Dansoman","Korle Bu / Mamprobi","Kasoa","Nsawam","Ofankor","Pokuase","Amasaman","Ablekuma","Mallam / Gbawe","McCarthy Hill / Weija","SCC / Tetegu","Other Greater Accra area"];
+const dl = document.getElementById("areas");
+AREAS.forEach(a => { const o = document.createElement("option"); o.value = a; dl.appendChild(o); });
+
+const form = document.getElementById("join"), msg = document.getElementById("msg"), btn = document.getElementById("submit");
+const label = btn.firstChild;
+form.addEventListener("input", e => { e.target.closest(".row,.consent")?.classList.remove("err"); msg.hidden = true; });
+function fail(id, text){ document.getElementById("r-"+id).classList.add("err"); msg.textContent = text; msg.hidden = false; document.getElementById(id).focus(); }
+
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  const name = form.name.value.trim(), area = form.area.value.trim();
+  const phone = form.phone.value.replace(/\D/g,"").replace(/^233/,"").replace(/^0/,"");
+  if (name.length < 2) return fail("name","Enter your name.");
+  if (phone.length !== 9) return fail("phone","Enter a 9-digit Ghana number, for example 24 123 4567.");
+  if (!area) return fail("area","Choose or type your area so we know where to build.");
+  if (!form.consent.checked) return fail("consent","Tick the box so we can message you when we reach your area.");
+  btn.disabled = true; label.textContent = "Saving… ";
+  const row = { full_name:name, phone:"+233"+phone, area, consent:true };
+  try{
+    if (db){
+      const { error } = await db.from("waitlist_submissions").insert(row);
+      if (error) throw error;
+    }
+    confirmSignup(name, area, phone);
+  }catch{
+    btn.disabled = false; label.textContent = "Reserve my spot ";
+    msg.textContent = "We couldn’t save your signup. Check your connection and try again."; msg.hidden = false;
+  }
+});
+
+function confirmSignup(name, area, phone){
+  const first = name.split(/\s+/)[0];
+  document.getElementById("doneAsk").textContent = `Is fiber coming to ${area}?`;
+  document.getElementById("doneTitle").textContent = `You’re on the list, ${first}.`;
+  document.getElementById("doneText").textContent = `We’ll message you on WhatsApp when fiber reaches ${area}.`;
+  const link = `${SITE_URL}/?ref=${phone.slice(-4)}`;
+  const text = `I just reserved a spot for AccraWireless fiber (unlimited data). The more of us in ${area} who join, the sooner they build here: ${link}`;
+  document.getElementById("waShare").href = "https://wa.me/?text=" + encodeURIComponent(text);
+  document.getElementById("copyLink").onclick = async ev => {
+    try{ await navigator.clipboard.writeText(link); ev.target.textContent = "Link copied"; }
+    catch{ ev.target.textContent = link; }
+  };
+  form.hidden = true; document.getElementById("done").hidden = false;
+  sticky.remove();
+}
+
+const sticky = document.getElementById("sticky");
+new IntersectionObserver(([en]) => sticky.classList.toggle("show", !en.isIntersecting && en.boundingClientRect.top < 0)).observe(document.getElementById("signup"));
+</script>
+
+</body>
+</html>
